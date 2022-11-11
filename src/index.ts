@@ -1,17 +1,13 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import { getGuideAvailability } from './controllers/guideController'
 
 dotenv.config()
-
-const app = express()
 const port = process.env.PORT
 
-app.get('/', (req, res) => {
-  res.send('Express + TypeScript Server')
-})
+const app = express()
+app.get('/guideAvailability', getGuideAvailability)
 
 app.listen(port, () => {
-  console.log(
-    `[server]: Server is running at https://localhost:${port || 3000}`
-  )
+  console.log(`[server]: Server is running at http://localhost:${port}`)
 })
