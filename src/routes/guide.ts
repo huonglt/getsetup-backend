@@ -9,6 +9,6 @@ const router = express.Router()
  * id: number - guide id
  * week: number - in range [0-51]
  */
-router.get('/:id/:week', guideController.getGuideAvailability)
+router.get('/:userId/:weekNumber', guideController.getGuideAvailability)
 
 export default router
