@@ -1,15 +1,16 @@
-import { Request } from 'express'
-import { ParamsDictionary } from 'express-serve-static-core'
-import { GuideAvailability } from '../models/guide'
+import * as yup from 'yup'
 
-export function isValidGuideAvailability(
-  params: any
-): params is GuideAvailability {
-  if (!params || typeof params !== 'object') {
-    return false
-  }
-  const isValidId = typeof params.id === 'number'
-  const isValidWeek = typeof params.week === 'number'
+const paramsSchema = yup.object({
+  userId: yup.number().required(),
+  weekNumber: yup.number().required(),
+})
 
-  return isValidId && isValidWeek
+/**
+ * Validate the request.params to the schema
+ * @param params
+ * @returns
+ */
+export const isValidGuideAvailability = async (params: any) => {
+  const isValid = await paramsSchema.isValid(params)
+  return isValid === true
 }
