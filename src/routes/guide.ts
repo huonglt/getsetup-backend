@@ -1,9 +1,10 @@
 import express from 'express'
+
 import * as guideController from '../controllers/guideController'
 import {
-  retrieveGuideAvailabilityRequestSchema,
-  submitGuideAvailabilityRequestSchema,
-} from '../validators/validatorSchema'
+  submitAvailabilityRequestSchema,
+  retrieveAvailabilityRequestSchema,
+} from '../validators'
 
 const router = express.Router()
 
@@ -15,7 +16,7 @@ const router = express.Router()
  */
 router.get(
   '/:userId/:weekNumber',
-  retrieveGuideAvailabilityRequestSchema,
+  retrieveAvailabilityRequestSchema,
   guideController.getGuideAvailability
 )
 
@@ -24,7 +25,7 @@ router.get(
  */
 router.post(
   '/availability',
-  submitGuideAvailabilityRequestSchema,
+  submitAvailabilityRequestSchema,
   guideController.submitGuideAvailability
 )
 
