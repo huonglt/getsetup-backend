@@ -1,17 +1,6 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-export type AvailableTime = {
-  from: Date
-  to: Date
-  booked: boolean
-}
-export type GuideAvailability = {
-  userId: number
-  weekNumber: number
-  availability: AvailableTime[]
-}
-
 const availableTimeSchema = new Schema({
   from: { type: Date, required: true },
   to: { type: Date, required: true },

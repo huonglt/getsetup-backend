@@ -21,6 +21,7 @@ router.get(
 )
 
 /**
+ * POST /guide/availability
  * submit availability for a guide in a given week with an array of time available
  */
 router.post(
