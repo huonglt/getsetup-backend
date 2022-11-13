@@ -57,8 +57,7 @@ export const submitGuideAvailability = async (req: Request, res: Response) => {
       options
     )
     log.info(`submitGuideAvailability: result = ${JSON.stringify(result)}`)
-    res.status(200).json({ data: result })
-    return
+    return res.status(200).json({ data: result })
   } catch (err) {
     res.status(500).json({
       error:
