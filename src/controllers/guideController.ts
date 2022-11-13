@@ -1,13 +1,15 @@
 import { Request, Response } from 'express'
 import log from 'loglevel'
+import { GuideAvailabilityModel } from '../models/guideModel'
 
 import { isValidGuideAvailability } from '../validators/guideValidator'
 
 /**
  * Get guide availability
  */
-export const getGuideAvailability = (req: Request, res: Response) => {
-  const isValid = isValidGuideAvailability(req.params)
+export const getGuideAvailability = async (req: Request, res: Response) => {
+  // make sure request data is correct
+  const isValid = await isValidGuideAvailability(req.params)
   if (!isValid) {
     log.error(
       `Param object is not valid GuideAvailability: ${JSON.stringify(
@@ -18,8 +20,13 @@ export const getGuideAvailability = (req: Request, res: Response) => {
     res.status(400).json({ error: 'Data invalid' })
     return
   }
-  const { id, week } = req.params
-  console.log(`request req.params = ${JSON.stringify(req.params)}`)
 
-  res.send('TODO: retrieve guide availability')
+  // retrieve data from mongodb
+  const { userId, weekNumber } = req.params
+  try {
+    const result = await GuideAvailabilityModel.find({ userId, weekNumber })
+    res.status(200).json({ data: result })
+  } catch (err) {
+    res.status(500).json({ error: 'Some error while trying to fetch data' })
+  }
 }
