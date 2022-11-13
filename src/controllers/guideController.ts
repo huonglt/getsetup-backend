@@ -20,9 +20,11 @@ export const getGuideAvailability = async (req: Request, res: Response) => {
   const { userId, weekNumber } = req.params
   try {
     const result = await GuideAvailabilityModel.find({ userId, weekNumber })
-    res.status(200).json({ data: result })
+    return res.status(200).json({ data: result })
   } catch (err) {
-    res.status(500).json({ error: 'Some error while trying to fetch data' })
+    return res
+      .status(500)
+      .json({ error: 'Some error while trying to fetch data' })
   }
 }
 
@@ -59,7 +61,7 @@ export const submitGuideAvailability = async (req: Request, res: Response) => {
     log.info(`submitGuideAvailability: result = ${JSON.stringify(result)}`)
     return res.status(200).json({ data: result })
   } catch (err) {
-    res.status(500).json({
+    return res.status(500).json({
       error:
         'Some error occurred while trying to save teaching availability data',
     })
