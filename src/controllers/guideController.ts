@@ -34,8 +34,6 @@ export const getGuideAvailability = async (req: Request, res: Response) => {
 
 /**
  * Add teaching availability timeslot for a given guide in a given week
- * @param req
- * @param res
  */
 export const submitGuideAvailability = async (req: Request, res: Response) => {
   // validate request data

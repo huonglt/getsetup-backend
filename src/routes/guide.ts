@@ -1,5 +1,4 @@
 import express from 'express'
-
 import * as guideController from '../controllers/guideController'
 import {
   submitAvailabilityRequestSchema,
