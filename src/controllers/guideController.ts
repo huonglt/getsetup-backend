@@ -1,11 +1,10 @@
 import { Request, Response } from 'express'
 import log from 'loglevel'
 import { GuideAvailabilityModel } from '../models/guideModel'
-
 import { isValidGuideAvailability } from '../validators/guideValidator'
 
 /**
- * Get guide availability
+ * Retrieve teaching availability for a guide in a given week
  */
 export const getGuideAvailability = async (req: Request, res: Response) => {
   // make sure request data is correct
