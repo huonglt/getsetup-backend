@@ -19,7 +19,11 @@ export const getGuideAvailability = async (req: Request, res: Response) => {
   // retrieve data from mongodb
   const { userId, weekNumber } = req.params
   try {
-    const result = await GuideAvailabilityModel.find({ userId, weekNumber })
+    const result = await GuideAvailabilityModel.find({
+      userId,
+      weekNumber,
+      booked: false,
+    })
     return res.status(200).json({ data: result })
   } catch (err) {
     return res
