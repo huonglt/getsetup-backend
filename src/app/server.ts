@@ -1,6 +1,6 @@
 import express from 'express'
 import log from 'loglevel'
-import { availabilityController, weekRouter } from '../routes/index'
+import { availabilityController, guideRouter, weekRouter } from '../routes/index'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 /**
@@ -20,6 +20,7 @@ export const startServer = (port: number, hostname: string) => {
 
   app.use('/availability', availabilityController)
   app.use('/week', weekRouter)
+  app.use('/guide', guideRouter)
 
   app.listen(port, hostname, () => {
     log.info(`express server running at http://${hostname}:${port}`)
