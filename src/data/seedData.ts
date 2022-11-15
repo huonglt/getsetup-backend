@@ -1,8 +1,4 @@
-import {
-  findNextXWeekDays,
-  findWeekDays,
-  findWeekNumber,
-} from '../util/weekUtil'
+import { generateAvailabilityWeeks } from '../tools/dataGenerator'
 /**
  * There is no actual database setup for this excercise
  * This module is to contain seed data, acting like database, for the app
@@ -19,28 +15,4 @@ export const guides = [
     userName: 'Amy Smith',
   },
 ]
-
-export const generateAvailabilityWeeks = () => {
-  const today = new Date()
-  const currentWeekNumber = findWeekNumber(today)
-  const thisWeekDays = findWeekDays(today)
-
-  return [
-    {
-      weekNumber: currentWeekNumber,
-      weekDays: thisWeekDays,
-    },
-    {
-      weekNumber: currentWeekNumber + 1,
-      weekDays: findNextXWeekDays(1),
-    },
-    {
-      weekNumber: currentWeekNumber + 2,
-      weekDays: findNextXWeekDays(2),
-    },
-    {
-      weekNumber: currentWeekNumber + 3,
-      weekDays: findNextXWeekDays(4),
-    },
-  ]
-}
+export const availabilityWeeks = generateAvailabilityWeeks()

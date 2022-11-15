@@ -1,6 +1,4 @@
-import { generateAvailabilityWeeks } from '../data/seedData'
-
-const availabilityWeeks = generateAvailabilityWeeks()
+import { availabilityWeeks } from '../data/seedData'
 
 /**
  * Simulate a week model where data is mocked

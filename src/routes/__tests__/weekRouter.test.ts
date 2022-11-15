@@ -1,7 +1,7 @@
 import { weekRouter } from '../index'
 import request from 'supertest'
 import express from 'express'
-import { generateAvailabilityWeeks } from '../../data/seedData'
+import { availabilityWeeks } from '../../data/seedData'
 
 const app = express()
 app.use('/week', weekRouter)
@@ -12,7 +12,6 @@ describe('Week router module', () => {
     expect(res.header['content-type']).toBe('application/json; charset=utf-8')
     expect(res.statusCode).toBe(200)
 
-    const expectedAvailabilityWeeks = generateAvailabilityWeeks()
-    expect(res.text).toEqual(JSON.stringify(expectedAvailabilityWeeks))
+    expect(res.text).toEqual(JSON.stringify(availabilityWeeks))
   })
 })
