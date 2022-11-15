@@ -20,13 +20,11 @@ Unit tests are run by jest.
 
 Due to time constraints, this app still have a lot of rooms to improve, which are:
 1. Use actual database
-2. Week numbers data are hard coded at the moment. This need to be replaced to return dynamic dates values, matching with the week number
-3. Week days data are hard coded at the moment, returning same week days for any given week. This need to be replaced to return the correct week days associated with a week number
-4. Add validation for teaching availability to make sure no time slot are overlap. Or can be extended to limit submissions to occur within certain hours.\
+4. Add more validations for teaching availability timeslot. For example do not allow overlapping timeslot. Or limit submissions to occur within certain hours.\
  Or validation to encourage a Guide to take a break and stretch their legs, to break up long periods. These validations will be built as middleware to make the app extensible
 4. Replace all other mocked data with more meaningful data
 5. More unit tests
-6. Add more features to the app to make it more interesting. For example, add an api to allow user to book a time with a guide
+6. Add more features to the app to make it more feature rich. For example, add an api to allow user to book a time with a guide
 
 
 
