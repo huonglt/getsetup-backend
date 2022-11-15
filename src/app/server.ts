@@ -1,7 +1,7 @@
 import express from 'express'
 import log from 'loglevel'
 import {
-  availabilityController,
+  availabilityRouter,
   guideRouter,
   weekRouter,
 } from '../routes/index'
@@ -22,7 +22,7 @@ export const startServer = (port: number, hostname: string) => {
   )
   app.use(bodyParser.json())
 
-  app.use('/availability', availabilityController)
+  app.use('/availability', availabilityRouter)
   app.use('/week', weekRouter)
   app.use('/guide', guideRouter)
 
