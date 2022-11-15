@@ -14,7 +14,7 @@ import cors from 'cors'
 export const startServer = (port: number, hostname: string) => {
   const app = express()
 
-  // to allow frontend app able to send api request to backend app without CORS error
+  // for dev environemnt: to avoid CORS error when localhost frontend app send api requests
   app.use(
     cors({
       origin: 'http://localhost:4000',
