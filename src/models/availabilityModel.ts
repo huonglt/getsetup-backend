@@ -1,30 +1,71 @@
-import mongoose from 'mongoose'
-const Schema = mongoose.Schema
+import { v4 as uuidv4 } from 'uuid'
+
+type FilterOption = {
+  userId: number
+  weekNumber: number
+}
+type Availability = {
+  from: Date
+  to: Date
+}
+
+type GuideAvailability = {
+  userId: number
+  weekNumber: number
+  availability: Availability[]
+}
+type GuideAvailabilityDoc = GuideAvailability & {
+  _id: string
+}
+
+// containing all the docs of the systen
+const allDocs: GuideAvailabilityDoc[] = []
 
 /**
- * Mongoose schema for Available Time, which is a nested document inside GuideAvailability document
- * Indidate a time slot [from, to] in a particular date where a guide is free or booked
+ * Method the find a document in the system matching the filter option
+ * @param {FilterOption} option - the option containing the criteria to find matching documents
+ * @returns {Promise<GuideAvailabilityDoc|null>}} - promise returning the first document matching the option or null if match not found
  */
-const availableTimeSchema = new Schema({
-  from: { type: Date, required: true },
-  to: { type: Date, required: true },
-  booked: { type: Boolean, required: true, default: false },
-})
+const findOne = async (option: FilterOption) => {
+  const result = allDocs.filter(
+    (doc) =>
+      doc.userId === option.userId && doc.weekNumber === option.weekNumber
+  )
+  if (result.length > 0) {
+    return result[0]
+  }
+  return null
+}
 
 /**
- * Mongoose schema for Guide Availability
- * Represent schema of teaching availability of guide in a specific week
+ * Method to update a document if it already exist or insert the document if it not existed
+ * @param {GuideAvailability} guideAvailability - the availability to insert / update to the documents
+ * @returns {GuideAvailabilityDoc} - the updated doc or the newly created doc
  */
-const guideAvailabilitySchema = new Schema({
-  userId: { type: Number, index: true, required: true, unique: true },
-  weekNumber: { type: Number, min: 1, max: 52, required: true, unique: true },
-  availability: [availableTimeSchema],
-})
+const findOneAndUpdate = async (guideAvailability: GuideAvailability) => {
+  const { userId, weekNumber } = guideAvailability
+  const option: FilterOption = { userId, weekNumber }
+  const doc = await findOne(option)
+  // document not exist, add it to allDocs
+  if (!doc) {
+    const newDoc = {
+        // generate unique id for the document like how Moongoose does it
+      _id: uuidv4(),
+      ...guideAvailability,
+    }
+    allDocs.push(newDoc)
+    return newDoc
+  } else {
+    // doc already exist, replace its availability
+    doc.availability = guideAvailability.availability
+  }
+  return doc
+}
 
 /**
- * The guide available time model to read and write documents into underlying MongoDB database
+ * Simulate Moongoose Model for demo purposes
  */
-export const GuideAvailabilityModel = mongoose.model(
-  'GuideAvailabilityModel',
-  guideAvailabilitySchema
-)
+export const AvailabilityModel = {
+  findOne,
+  findOneAndUpdate,
+}
