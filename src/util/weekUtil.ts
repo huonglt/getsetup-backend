@@ -24,14 +24,18 @@ export const findWeekDays = (date: Date): Date[] => {
 }
 
 /**
- * Method to find week days in next X week
+ * Method to find week days in next X week from a date
  * @param {number} week - in the next X week
  * @returns {Date[]} - week days in next X week
  */
-export const findNextXWeekDays = (week: number): Date[] => {
-  const today = new Date()
-  const todayInXWeek = new Date(today.setDate(today.getDate() + week * 7))
-  return findWeekDays(todayInXWeek)
+export const findNextXWeekDays = (date: Date, week: number): Date[] => {
+  //const today = new Date()
+  let dateInXWeek = new Date(date.setDate(date.getDate() + week * 7))
+  // set hour, minute and second to 0
+  dateInXWeek = new Date(dateInXWeek.setHours(0))
+  dateInXWeek = new Date(dateInXWeek.setMinutes(0))
+  dateInXWeek = new Date(dateInXWeek.setSeconds(0))
+  return findWeekDays(dateInXWeek)
 }
 
 /**
