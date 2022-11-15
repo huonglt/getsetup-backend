@@ -1,6 +1,6 @@
 import express from 'express'
 import log from 'loglevel'
-import { guideRouter, weekRouter } from '../routes/index'
+import { availabilityController, weekRouter } from '../routes/index'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 /**
@@ -18,7 +18,7 @@ export const startServer = (port: number, hostname: string) => {
   )
   app.use(bodyParser.json())
 
-  app.use('/guide', guideRouter)
+  app.use('/availability', availabilityController)
   app.use('/week', weekRouter)
 
   app.listen(port, hostname, () => {

@@ -20,11 +20,11 @@ router.get(
 )
 
 /**
- * POST /guide/availability
+ * POST /availability/update
  * submit availability for a guide in a given week with an array of time available
  */
 router.post(
-  '/availability',
+  '/update',
   submitAvailabilityRequestSchema,
   availabilityController.submitGuideAvailability
 )
