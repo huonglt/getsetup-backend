@@ -9,7 +9,6 @@ app.get('/list', getGuideList)
 describe('guideController', () => {
   it('getGuideList', async () => {
     const res = await request(app).get('/list')
-    console.log(`res = ${JSON.stringify(res)}`)
     expect(res.text).toEqual(JSON.stringify(guides))
   })
 })
