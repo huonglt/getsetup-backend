@@ -22,6 +22,7 @@ export const startServer = (port: number, hostname: string) => {
   )
   app.use(bodyParser.json())
 
+  // all the routes currently supported
   app.use('/availability', availabilityRouter)
   app.use('/week', weekRouter)
   app.use('/guide', guideRouter)
