@@ -30,9 +30,9 @@ export const getWeekdays = async (req: Request, res: Response) => {
 /**
  * Get list of week numbers currently supported
  */
-export const getWeekNumbers = async (req: Request, res: Response) => {
+export const getAvailabilityWeeks = async (req: Request, res: Response) => {
   try {
-    const result = await WeekModel.getWeekNumbers()
+    const result = await WeekModel.getAvailabilityWeeks()
     return res.status(200).json(result)
   } catch (err) {
     return res

@@ -20,7 +20,7 @@ export const guides = [
   },
 ]
 
-export const generateWeekNumbers = () => {
+export const generateAvailabilityWeeks = () => {
   const today = new Date()
   const currentWeekNumber = findWeekNumber(today)
   const thisWeekDays = findWeekDays(today)

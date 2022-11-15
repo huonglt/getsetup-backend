@@ -10,9 +10,9 @@ const router = express.Router()
 router.get('/weekDays/:weekNumber', weekController.getWeekdays)
 
 /**
- * GET /week/weekNumbers
- * Retrieve list of week number that are supported
+ * GET /week/availability
+ * Retrieve list of availability weeks that are supported
  */
-router.get('/weekNumbers', weekController.getWeekNumbers)
+router.get('/availabilityWeeks', weekController.getAvailabilityWeeks)
 
 export default router

@@ -1,20 +1,20 @@
-import { generateWeekNumbers } from '../data/seedData'
+import { generateAvailabilityWeeks } from '../data/seedData'
 
-const weekNumbers = generateWeekNumbers()
+const availabilityWeeks = generateAvailabilityWeeks()
 
 /**
  * Simulate a week model where data is mocked
  */
 const getWeekdays = async (weekNumber: number) => {
-  const week = weekNumbers.find((item) => item.weekNumber === weekNumber)
+  const week = availabilityWeeks.find((item) => item.weekNumber === weekNumber)
   return Promise.resolve(week?.weekDays)
 }
 
-const getWeekNumbers = async () => {
-  return Promise.resolve(weekNumbers)
+const getAvailabilityWeeks = async () => {
+  return Promise.resolve(availabilityWeeks)
 }
 
 export const WeekModel = {
   getWeekdays,
-  getWeekNumbers,
+  getAvailabilityWeeks,
 }
