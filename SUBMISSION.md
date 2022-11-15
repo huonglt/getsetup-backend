@@ -16,7 +16,7 @@ Errors are handled and sent back to client.\
 
 ### Further Improvements
 
-Due to time constraints, this app still have a lot of rooms to improve. There are:
+Due to time constraints, this app still have a lot of rooms to improve, which are:
 1. Use actual database
 2. Week numbers data are hard coded at the moment. This need to be replaced to return dynamic dates values, matching with the week number.\
 3. Week days data are hard coded at the moment, returning same week days for any given week. This need to be replaced to return the correct week days associated with a week number.\ 
