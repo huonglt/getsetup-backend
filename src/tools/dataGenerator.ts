@@ -28,7 +28,7 @@ export const generateAvailabilityWeeks = () => {
     },
     {
       weekNumber: currentWeekNumber + 3,
-      weekDays: findNextXWeekDays(4),
+      weekDays: findNextXWeekDays(3),
     },
   ]
 }
