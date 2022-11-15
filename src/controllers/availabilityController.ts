@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 import log from 'loglevel'
-import { GuideAvailabilityModel } from '../models/guideModel'
+import { GuideAvailabilityModel } from '../models/availabilityModel'
 
 /**
  * Retrieve teaching availability for a guide in a given week

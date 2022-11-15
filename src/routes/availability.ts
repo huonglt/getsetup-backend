@@ -1,5 +1,5 @@
 import express from 'express'
-import * as guideController from '../controllers/guideController'
+import * as availabilityController from '../controllers/availabilityController'
 import {
   submitAvailabilityRequestSchema,
   retrieveAvailabilityRequestSchema,
@@ -16,7 +16,7 @@ const router = express.Router()
 router.get(
   '/:userId/:weekNumber',
   retrieveAvailabilityRequestSchema,
-  guideController.getGuideAvailability
+  availabilityController.getGuideAvailability
 )
 
 /**
@@ -26,7 +26,7 @@ router.get(
 router.post(
   '/availability',
   submitAvailabilityRequestSchema,
-  guideController.submitGuideAvailability
+  availabilityController.submitGuideAvailability
 )
 
 export default router
