@@ -1,2 +1,2 @@
-export { retrieveAvailabilityRequestSchema } from './retrieveAvailabilityRequestSchema'
-export { submitAvailabilityRequestSchema } from './submitAvailabilityRequestSchema'
+export { getAvailabilityRequestSchema } from './getAvailabilityRequestSchema'
+export { updateAvailabilityRequestSchema } from './updateAvailabilityRequestSchema'

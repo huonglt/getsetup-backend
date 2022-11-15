@@ -1,4 +1,4 @@
-import { retrieveAvailabilityRequestSchema as schema } from '../retrieveAvailabilityRequestSchema'
+import { getAvailabilityRequestSchema as schema } from '../getAvailabilityRequestSchema'
 describe('retrieveAvailabilityRequestSchema', () => {
   it('errors are correct for invalid query', async () => {
     // userId invalid, weekNumber is missing

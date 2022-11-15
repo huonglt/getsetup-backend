@@ -1,8 +1,8 @@
 import express from 'express'
 import * as availabilityController from '../controllers/availabilityController'
 import {
-  submitAvailabilityRequestSchema,
-  retrieveAvailabilityRequestSchema,
+  getAvailabilityRequestSchema,
+  updateAvailabilityRequestSchema,
 } from '../validators'
 
 const router = express.Router()
@@ -15,7 +15,7 @@ const router = express.Router()
  */
 router.get(
   '/:userId/:weekNumber',
-  retrieveAvailabilityRequestSchema,
+  getAvailabilityRequestSchema,
   availabilityController.getGuideAvailability
 )
 
@@ -25,7 +25,7 @@ router.get(
  */
 router.post(
   '/update',
-  submitAvailabilityRequestSchema,
+  updateAvailabilityRequestSchema,
   availabilityController.submitGuideAvailability
 )
 

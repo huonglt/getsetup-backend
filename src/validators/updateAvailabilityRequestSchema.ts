@@ -1,9 +1,9 @@
 import { checkSchema } from 'express-validator'
 
 /**
- * Schema to validate data for submitting teaching availability request
+ * Schema to validate data for for update teaching availability request
  */
-export const submitAvailabilityRequestSchema = checkSchema({
+export const updateAvailabilityRequestSchema = checkSchema({
   userId: {
     exists: {
       errorMessage: 'UserId is required',

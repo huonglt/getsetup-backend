@@ -3,7 +3,7 @@ import { checkSchema } from 'express-validator'
 /**
  * Schema to validate data for retrieve teaching availability request
  */
-export const retrieveAvailabilityRequestSchema = checkSchema({
+export const getAvailabilityRequestSchema = checkSchema({
   userId: {
     exists: {
       errorMessage: 'UserId is required',
