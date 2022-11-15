@@ -1,6 +1,10 @@
 import express from 'express'
 import log from 'loglevel'
-import { availabilityController, guideRouter, weekRouter } from '../routes/index'
+import {
+  availabilityController,
+  guideRouter,
+  weekRouter,
+} from '../routes/index'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 /**

@@ -7,10 +7,7 @@ const router = express.Router()
  * GET /week/weekDays/:weekNumber request
  * Retrieve week days for a given week
  */
-router.get(
-  '/weekDays/:weekNumber',
-  weekController.getWeekdays
-)
+router.get('/weekDays/:weekNumber', weekController.getWeekdays)
 
 /**
  * GET /week/weekNumbers
