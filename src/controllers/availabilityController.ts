@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 import log from 'loglevel'
-import { GuideAvailabilityModel } from '../models/availabilityModel'
+import { AvailabilityModel } from '../models/availabilityModel'
 
 /**
  * Retrieve teaching availability for a guide in a given week
@@ -18,12 +18,12 @@ export const getGuideAvailability = async (req: Request, res: Response) => {
 
   // retrieve data from mongodb
   const { userId, weekNumber } = req.params
+  const option = {
+    userId: Number(userId),
+    weekNumber: Number(weekNumber),
+  }
   try {
-    const result = await GuideAvailabilityModel.findOne({
-      userId,
-      weekNumber,
-      booked: false,
-    })
+    const result = await AvailabilityModel.findOne(option)
     return res.status(200).json(result)
   } catch (err) {
     return res
@@ -47,19 +47,15 @@ export const submitGuideAvailability = async (req: Request, res: Response) => {
 
   // overwrite the availability of a given guide in a given week in mongodb
   const { userId, weekNumber, availability } = req.body
-  const filter = { userId, weekNumber }
-  const options = { new: true, upsert: true }
+  //const filter = { userId, weekNumber }
+  //const options = { new: true, upsert: true }
   const guideAvailability = {
     userId,
     weekNumber,
     availability,
   }
   try {
-    const result = await GuideAvailabilityModel.findOneAndUpdate(
-      filter,
-      guideAvailability,
-      options
-    )
+    const result = await AvailabilityModel.findOneAndUpdate(guideAvailability)
     log.info(`submitGuideAvailability: result = ${JSON.stringify(result)}`)
     return res.status(200).json({ data: result })
   } catch (err) {
