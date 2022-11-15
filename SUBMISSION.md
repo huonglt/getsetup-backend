@@ -14,6 +14,8 @@ Validations are setup as middleware in the request flow chain. Validation for ea
 
 Errors are handled and sent back to client.\
 
+Unit tests are run by jest.\
+
 ### Further Improvements
 
 Due to time constraints, this app still have a lot of rooms to improve, which are:
