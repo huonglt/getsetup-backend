@@ -18,7 +18,7 @@ export const getWeekdays = async (req: Request, res: Response) => {
   // retrieve data from mongodb
   const { weekNumber } = req.params
   try {
-    const result = await WeekModel.getWeekdays()
+    const result = await WeekModel.getWeekdays(Number(weekNumber))
     return res.status(200).json(result)
   } catch (err) {
     return res
