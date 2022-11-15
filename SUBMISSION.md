@@ -22,5 +22,6 @@ Due to time constraints, this app still have a lot of rooms to improve, which ar
 3. Week days data are hard coded at the moment, returning same week days for any given week. This need to be replaced to return the correct week days associated with a week number.\ 
 4. Replace all other mocked data with more meaningful data
 5. More unit tests
+6. Add more features to the app to make it more interesting
 
 
