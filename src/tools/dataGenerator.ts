@@ -20,15 +20,15 @@ export const generateAvailabilityWeeks = () => {
     },
     {
       weekNumber: currentWeekNumber + 1,
-      weekDays: findNextXWeekDays(1),
+      weekDays: findNextXWeekDays(today, 1),
     },
     {
       weekNumber: currentWeekNumber + 2,
-      weekDays: findNextXWeekDays(2),
+      weekDays: findNextXWeekDays(today, 2),
     },
     {
       weekNumber: currentWeekNumber + 3,
-      weekDays: findNextXWeekDays(3),
+      weekDays: findNextXWeekDays(today, 3),
     },
   ]
 }
