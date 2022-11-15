@@ -5,17 +5,21 @@
 /**
  * Method to get the week days of a date
  * A week is from Monday to Sunday (can be changed to Sunday to Monday)
+ * A day in the week is at 0 hour, 0 minute, 0 second
  * @param {Date} date - a date to find the week days for
  * @returns {Date[]} - the week containing the date
  */
 export const findWeekDays = (date: Date): Date[] => {
   const weekDays: Date[] = []
   for (let i = 1; i <= 7; i++) {
-    weekDays.push(new Date(date.setDate(date.getDate() - date.getDay() + i)))
+    let day = new Date(date.setDate(date.getDate() - date.getDay() + i))
+    // set hour, minute and second to 0
+    day = new Date(day.setHours(0))
+    day = new Date(day.setMinutes(0))
+    day = new Date(day.setSeconds(0))
+    weekDays.push()
   }
-  /*const monday = new Date(date.setDate(date.getDate() - date.getDay() + 1))
-  const sunday = new Date(date.setDate(date.getDate() - date.getDay() + 7))
-  return [monday.toLocaleDateString(), sunday.toLocaleDateString()]*/
+
   return weekDays
 }
 
