@@ -22,8 +22,8 @@ const boostrapApp = async () => {
   // start expressjs server
   startServer(Number(EXPRESS_SERVER_PORT), EXPRESS_SERVER_HOSTNAME)
 
-  // start mongodb
-  startMongoDB(MONGO_DB_HOST, Number(MONG0_DB_PORT), MONG0_DB_NAME)
+  // if you want to use actual mongodb, uncomment the line below. It requires a mongodb database created. Otherwise app will use in-memory data
+  //startMongoDB(MONGO_DB_HOST, Number(MONG0_DB_PORT), MONG0_DB_NAME)
 }
 
 boostrapApp()
