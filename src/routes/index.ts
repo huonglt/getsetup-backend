@@ -1,3 +1,3 @@
-export { default as availabilityRouter } from './availability'
-export { default as weekRouter } from './week'
-export { default as guideRouter } from './guide'
+export { default as availabilityRouter } from './availabilityRouter'
+export { default as weekRouter } from './weekRouter'
+export { default as guideRouter } from './guideRouter'
