@@ -1,5 +1,5 @@
 import { getAvailabilityRequestSchema as schema } from '../getAvailabilityRequestSchema'
-describe('retrieveAvailabilityRequestSchema', () => {
+describe('getAvailabilityRequestSchema', () => {
   it('errors are correct for invalid query', async () => {
     // userId invalid, weekNumber is missing
     const results = await Promise.all(
