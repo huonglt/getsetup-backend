@@ -1,3 +1,9 @@
+/**
+ * There is no actual database setup for this excercise
+ * This module is to contain seed data, acting like database, for the app
+ */
+
+// list of all guides supported by the system
 export const guides = [
   {
     userId: 1,
@@ -9,6 +15,7 @@ export const guides = [
   },
 ]
 
+// weekDays for a given week. For now return same set of week days for any week. In the future return better meaningful data
 export const weekDays = [
   new Date(2022, 10, 14),
   new Date(2022, 10, 15),
@@ -19,6 +26,7 @@ export const weekDays = [
   new Date(2022, 10, 20),
 ]
 
+// list of all week numbers supported by the system
 export const weekNumbers = [
   {
     weekNumber: 1,
