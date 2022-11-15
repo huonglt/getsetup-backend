@@ -17,7 +17,7 @@ export const findWeekDays = (date: Date): Date[] => {
     day = new Date(day.setHours(0))
     day = new Date(day.setMinutes(0))
     day = new Date(day.setSeconds(0))
-    weekDays.push()
+    weekDays.push(day)
   }
 
   return weekDays
