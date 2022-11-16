@@ -9,7 +9,7 @@ These mocked models help running the app easily without having to install MongoD
 
 This app uses Typescript to make sure variables having correct types.
 
-This app is designed following MVC model.
+This app is designed to follow MVC model.
 
 Requests are validated before being processed by controller, which will delegate to model object to perform database related operations.
 Validations are setup as middleware in the request flow chain. Validation for each request is built as schemas, which makes it easy to implement, and easy to test.
