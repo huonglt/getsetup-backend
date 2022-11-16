@@ -15,4 +15,6 @@ export const guides = [
     userName: 'Amy Smith',
   },
 ]
+
+// list of availablity weeks supported by the system
 export const availabilityWeeks = generateAvailabilityWeeks()
