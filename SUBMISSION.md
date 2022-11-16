@@ -1,11 +1,13 @@
 ### Design and implementation aspects
 
-This app is to build using express server to provide APIs needed to support its clients.
+This MVP app is to provide APIs needed to allow Getsetup users to retrieve and submit teaching availaibility in a given week.
+It is an expressjs app running on node environment.
+
 Initially I chose MongoDB to manage app data. But then for the demo purposes, I swap it out with mocked Model objects.
 The mocked models object, functioning similar to Mongoose Models, but working with in-memory data, not database.
 These mocked models help running the app easily without having to install MongoDB.
 
-This app using Typescript to make sure variables having correct types.
+This app uses Typescript to make sure variables having correct types.
 
 This app is designed following MVC model.
 
